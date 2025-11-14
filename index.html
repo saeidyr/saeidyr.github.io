@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>کارت ویزیت سبز</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Samim:wght@400;700&family=Vazirmatn:wght@400;500;600;700&display=swap');
+:root {
+  --text-color: #303030;
+  --light-bg: #f9f9f9;
+  --border-radius: 12px;
+  --shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+  --heading-font: 'Samim', 'Vazirmatn', sans-serif;
+  --body-font: 'Vazirmatn', 'Segoe UI', sans-serif;
+
+  --intro-bg: #a86ee9;
+  --intro-bg-hover: #e9ecef;
+  --intro-color: #000;
+
+  --skills-bg: #b3a7c7;
+  --skills-bg-hover: #d6c4c8;
+  --skills-color: #343b46d5;
+
+  --contact-bg: #bba6f3;
+  --contact-bg-hover: #bbdefb;
+  --contact-color: #0a58ca;
+
+  --address-bg: #eb8cb0;
+  --address-bg-hover: #d4edda;
+  --address-color: #090a0a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--body-font); font-weight: 400; letter-spacing: 0.01em; line-height: 1.75;
+  background: radial-gradient(circle at top, #f7fff5, #ebf5e9 45%, #e6f1e3);
+  color: var(--text-color); padding: 24px; display: flex; justify-content: center;
+  align-items: center; min-height: 100vh;
+}
+.business-card{width:100%;max-width:500px;background:#fff;border-radius:var(--border-radius);box-shadow:var(--shadow);overflow:hidden;}
+.logo-section{display:flex;flex-direction:row-reverse;align-items:center;padding:10px;padding:10px;background:linear-gradient(135deg,#5fe776,#4ace3e);color:#fff;justify-content: center;}
+.logo-section .logo{width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid #f00d0d;}
+.logo-info{text-align:right;
+      display: flex; align-items: flex-end; flex-direction: column; gap: 20px; padding: 25px;
+      background: linear-gradient(135deg,#5fe776,#4ace3e); color: #fff;
+}
+.logo-info h1{font-family:var(--heading-font);font-size:26px;}
+.logo-info .title{font-size:20px;}
+.accordion-button{
+  width:100%; display:flex; justify-content:space-between; align-items:center; padding:15px 20px;
+  border:none; cursor:pointer; font-size:20px; font-weight:600; transition:.3s;
+  font-family:var(--heading-font);
+}
+.accordion-button svg{width:16px;height:16px;fill:currentColor;transition:transform .3s;}
+.accordion-button.active svg{transform:rotate(180deg);}
+.accordion-content{max-height:0;overflow:hidden;transition:max-height .4s ease-out;padding:0 20px;}
+.accordion-content.active{padding:15px 20px;overflow-y:auto;}
+#intro-btn{background:var(--intro-bg);color:var(--intro-color);}
+#contact-btn{background:var(--contact-bg);color:var(--contact-color);}
+#skills-btn{background:var(--skills-bg);color:var(--skills-color);}
+#address-btn{background:var(--address-bg);color:var(--address-color);}
+#intro-content{background:var(--intro-bg);color:var(--intro-color);padding-right: 40px; font-size: 20px;}
+#contact-content{background:var(--contact-bg);color:var(--contact-color);}
+#skills-content{
+  background:var(--skills-bg); color:var(--skills-color); display:flex; flex-direction:column;
+  align-items:center; gap:18px;
+}
+#address-content{background:var(--address-bg);color:var(--address-color);}
+/* ساختار دو ستونه شبکه‌های اجتماعی */
+.social-wrapper { display: flex; 
+  justify-content: center; /* وسط از دید دو ستون */
+  gap: 60px; /* فاصله بین دو ستون */
+  /* flex-wrap: wrap; در موبایل زیر هم می‌روند */
+  flex-wrap: nowrap; /* در موبایل کنار هم می مانند */
+  margin-top: 10px; } 
+.social-column { display: flex; flex-direction: column; gap: 8px; }   
+.social-column.left { align-items: flex-end; text-align: right; } 
+.social-column.right { align-items: flex-start; text-align: left; } /*ستون راست*/
+.contact-method a { display: inline-block; background: #4caf50; color: #fff; padding: 6px 12px;
+  border-radius: 5px; font-weight: 600; text-decoration: none; transition: background 0.3s; } 
+.contact-method a:hover { background: #388e3c; } 
+.contact-method a{font-weight:600;padding:8px 15px;background:#4CAF50;color:#fff;border-radius:5px;margin:4px;text-decoration:none;}
+#skills-content .contact-method{
+  width:100%; max-width:420px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between;
+  align-items:center; gap:32px; direction:ltr; background:rgba(255,255,255,0.2); border-radius:14px;
+   box-shadow:0 6px 14px rgba(0,0,0,0.12);
+}
+#skills-content .contact-method a{
+  flex:1; display:flex; align-items:center; 
+  font-size:1.3rem; font-weight:600; letter-spacing:0.01em; background:transparent;
+  color:currentColor; padding:0; margin:0;
+}
+#skills-content .contact-method a:first-child{
+  justify-content:flex-start; text-align:left; direction:rtl;
+  font-family:'Samim','Vazirmatn',sans-serif;
+}
+#skills-content .contact-method a:last-child{
+  justify-content:flex-end; text-align:right; direction:ltr;
+  font-family:'Vazirmatn','Segoe UI',sans-serif; font-variant-numeric:tabular-nums;
+  letter-spacing:0.12em; font-weight:700;
+}
+/* 🟢 مرکزیت کامل دکمه‌های آدرس */
+#locations-list {
+  display: flex; flex-direction: column; align-items: center;      /* وسط چین افقی */
+  justify-content: center;  /* وسط چین عمودی */
+  text-align: center; width: 100%;
+}
+/* ✨ دکمه‌ها با فونت زیباتر و کاملاً وسط‌چین */
+.map-link {
+  background: linear-gradient(135deg, #43a047, #2e7d32); color: #fff; border: none;
+  padding: 12px 20px; margin: 10px 0;  border-radius: 10px;  font-family: 'Vazirmatn', 'Shabnam', sans-serif;
+  font-size: 17px;
+  font-weight: 700;  text-align: center;  width: 80%;  max-width: 340px;  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);  transition: all 0.3s ease;
+}
+.map-link:hover {
+  background: linear-gradient(135deg, #388e3c, #1b5e20);
+  transform: translateY(-2px);
+}
+/* 🟩 تنظیم واکنش‌گرایی برای موبایل */
+@media (max-width: 480px) {
+   #skills-content .contact-method{
+    flex-direction: column;  align-items:stretch;  gap:10px;  direction:rtl;
+  } 
+    #skills-content .contact-method a{
+    width:100%;  justify-content:flex-start;  text-align:right;
+   /* فونت شماره کارت  */
+    font-size:1.3rem;  }
+  #skills-content .contact-method a:last-child{
+    direction:ltr;  text-align:right;  letter-spacing:0.15em;
+  }
+  .social-column.left,
+  .social-column.right { gap: 6px; /* کمی فشرده‌تر برای نمای بهتر */
+  } 
+  .contact-method a { padding: 5px 10px; font-size: 14px; }
+} 
+.f{
+  font-size: 1.5rem;
+}
+</style>
+</head>
+<body>
+<div class="business-card">
+  <div class="logo-section">
+    <img src="https://cdn.imgurl.ir/uploads/y695586_1.jpg" alt="" class="logo">
+  </div>
+  <div class="logo-section">
+      <h2> سعید یابری طراح سایت  </h2>
+  </div>
+  <!-- درباره ما -->
+    <div class="accordion-item">
+      <button id="intro-btn" class="accordion-button" onclick="toggleAccordion(0)">
+        <span> کارت سبز ویزیت و فروشگاهی</span>
+        <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58Z"/></svg>
+      </button>
+      <div class="accordion-content" id="intro-content">
+        <ul>
+          <li> کارت ویزیت سبز حامی محیط زیست 🌳</li>
+ <li>
+🩺 کارت ویزیت سبز؛ نسخه‌ی هوشمند معرفی شما!
+ 🌱 کارت ویزیت سبز؛ هوشمند، ساده و همیشه همراه شما!
+دیگه لازم نیست برای معرفی خودتون، هزار تا کارت کاغذی پخش کنید که گم بشن یا دور ریخته بشن!
+با کارت ویزیت سبز فقط کافیه یک QR کد ساده داشته باشید تا دیگران با اسکن اون، وارد صفحه اختصاصی شما بشن و همه چیز رو ببینن:
+📍 مشخصات کامل و معرفی شما
+📞 شماره تماس، شبکه‌های اجتماعی و راه‌های ارتباطی
+📌 موقعیت مکانی روی نقشه
+💬 امکان ارسال پیام مستقیم
+کارت ویزیت سبز، مخصوص پزشکان، فروشگاه‌داران، مهندسان، آرایشگران، و همه صاحبان مشاغل که می‌خوان همیشه حرفه‌ای و به‌روز دیده بشن.
+بدون نیاز به چاپ، بدون هزینه اضافی، همیشه در دسترس و همیشه سبز 💚
+✨ با کارت ویزیت سبز، معرفی شما فقط یک اسکن فاصله دارد!
+*** تمام مطالب کارت طبق نظر شما طراحی می شود *** 
+</li>
+
+
+        </ul>
+      </div>
+    </div>
+    <!-- تماس با ما -->
+    <div class="accordion-item">
+      <button id="contact-btn" class="accordion-button" onclick="toggleAccordion(1)">
+        <span>تماس با ما</span>
+        <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58Z"/></svg>
+      </button>
+      <div class="accordion-content" id="contact-content">
+        <div class="contact-method f" id="content"> <a href="#" onclick="makeCall('+989398508530')">📞  تماس با مدیریت/ایرانسل</a></div>
+        <div class="contact-method f" id="content">  <a href="#" onclick="makeCall('+989168603466')">📞 تماس با مدیریت / همراه اول</a></div> 
+         <div class="contact-method f" id="content"> <a href="https://t.me/Saeidyr5" target="_blank">💬  ارسال پیام به تـلگرام</a></div>
+         <div class="contact-method f" id="content"> <a href="https://wa.me/989398508530" target="_blank">💬 ارسال پیام به واتساپ</a></div>
+         <div class="contact-method f" id="content"> <a href="https://eitaa.com/saeidyr" target="_blank">💬 ارسال پیام به ایـتـا</a></div>
+        <div class="contact-method f" id="content"> <a href="http://www.rubika.ir/@saeidyr" target="_blank">💬 ارسال پیام به روبیکـا</a></div>
+        <div class="contact-method f" id="content">  <a href="https://ble.ir/saeidyrb" target="_blank">💬 ارسال پیام به بـلـه</a></div>
+        <div class="contact-method f" id="content">  <a href="https://www.saeidyr.ir" target="_blank">🌐 مشاهده سایت</a></div>
+        <div class="contact-method f" id="content"> <a href="https://www.youtube.com/@saeidyout" target="_blank">▶️ مشاهده کانال یوتیوب</a></div>
+</div>
+    </div>
+    <!-- کارت‌های بانکی -->
+    <div class="accordion-item">
+      <button id="skills-btn" class="accordion-button" onclick="toggleAccordion(2)">
+        <span>کارت‌های بانکی</span>
+        <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58Z"/></svg>
+      </button>
+      <div class="accordion-content" id="skills-content">
+        <div class="contact-method">
+          <a>🔹 بلو بانک </a>
+           <a href="#" onclick="shareNumber('6219861802089788'); return false;">6219861802089788</a>
+        </div>
+         <div class="contact-method">
+          <a>🔹 بانک رفاه </a>
+          <a href="#" onclick="shareNumber('5894631191418805'); return false;">5894631191418805</a>
+         </div>
+        <div class="contact-method">
+        <a> 🔹 کشاورزی  </a>
+          <a href="#" onclick="shareNumber('6037701654932315'); return false;">6037701654932315</a>
+        </div>
+        <div class="contact-method">
+          <a>🔹 رسالت  </a>
+          <a href="#" onclick="shareNumber('5041721008790405'); return false;">5041721008790405</a>
+        </div>
+      </div>
+    </div>
+  <!-- 🟢 آدرس‌ها -->
+<div class="accordion-item">
+  <button id="address-btn" class="accordion-button" onclick="toggleAccordion(3)">
+    <span>آدرس‌ها</span>
+    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58Z"/></svg>
+  </button>
+  <div class="accordion-content" id="address-content">
+    <div id="locations-list"></div>
+  </div>
+</div>
+<script>
+function toggleAccordion(index){
+  const btns=document.querySelectorAll('.accordion-button');
+  const conts=document.querySelectorAll('.accordion-content');
+  const b=btns[index], c=conts[index];
+  const open=c.classList.contains('active');
+  btns.forEach(x=>x.classList.remove('active'));
+  conts.forEach(x=>{x.classList.remove('active');x.style.maxHeight=null;});
+  if(!open){b.classList.add('active');c.classList.add('active');c.style.maxHeight=c.scrollHeight+'px';}
+}
+function toggleCardMenu(el,num){
+  document.querySelectorAll('.card-actions').forEach(c=>c.style.display='none');
+  const next=el.nextElementSibling;
+  next.style.display=next.style.display==='flex'?'none':'flex';
+}
+function copyNumber(num){
+  navigator.clipboard.writeText(num).then(()=>{
+    const t=document.getElementById('toast');
+    t.textContent='✅ شماره کارت کپی شد';
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2000);
+  });
+}
+function shareNumber(num){
+  const text=`${num}`;
+  if(navigator.share){navigator.share({text});}
+  else{window.open(`https://wa.me/?text=${encodeURIComponent(text)}`,'_blank');}
+}
+function makeCall(n){
+  if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)){window.location.href="tel:"+n;}
+  else{navigator.clipboard.writeText(n).then(()=>alert("شماره کپی شد!"));}
+}
+ // 🗺️ آرایه‌ای از مکان‌ها — هرکدام با نام و طول/عرض جغرافیایی
+  const locations = [
+    {
+      label: 'دفتر اصلی: شهرستان اهواز، شهر الهائی، خیابان شهید محسن الهائی',
+      lat: 31.6595325276542,
+      lng: 48.590634517764656
+    },
+    {
+      label: 'محل کار: خ امام حسن عسکری ع دبیرستان شهید حسن الهائی',
+      lat: 31.65306347427871,
+      lng: 48.597076111153655
+    },
+    {
+      label: 'آدرس سوم در صورت نیاز',
+      lat: 31.279271,
+      lng: 49.603414
+    }
+  ];
+  // 🔄 وقتی صفحه لود شد، دکمه‌ها به‌صورت خودکار ساخته می‌شوند
+  document.addEventListener("DOMContentLoaded", () => {
+    const list = document.getElementById("locations-list");
+    locations.forEach((loc, i) => {
+      const btn = document.createElement("button");
+      btn.className = "map-link";
+      btn.textContent = loc.label;
+      btn.onclick = () => openNavigator(i);  // هر دکمه تابع مسیر خاص خودش را صدا می‌زند
+      list.appendChild(btn);
+    });
+  });
+  // 🎯 تابع باز کردن مسیر در نقشه
+  function openNavigator(index) {
+    const loc = locations[index];
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const mobile = /android|iphone|ipad|ipod/i.test(userAgent);
+    if (mobile) {
+      if (/android/i.test(userAgent)) {
+        // در اندروید geo: اپ‌های مختلف را برای انتخاب مسیریاب نشان می‌دهد
+        const geoUri = `geo:${loc.lat},${loc.lng}?q=${encodeURIComponent(loc.label)}`;
+        window.location.href = geoUri;
+      } else {
+        // در iOS تلاش برای باز کردن اپل‌مپس، در صورت نبود مرورگر باز می‌شود
+        const appleUri = `maps://maps.apple.com/?ll=${loc.lat},${loc.lng}&q=${encodeURIComponent(loc.label)}`;
+        window.location.href = appleUri;
+      }
+    } else {
+      // دسکتاپ یا مرورگرهایی که geo را نمی‌شناسند
+      const googleUrl = `https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lng}`;
+      window.open(googleUrl, '_blank');
+    }
+  }
+</script>
+</body>
+</html>
