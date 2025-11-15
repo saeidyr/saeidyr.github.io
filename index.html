@@ -133,10 +133,10 @@ body {
   .social-column.right { gap: 6px; /* کمی فشرده‌تر برای نمای بهتر */
   } 
   .contact-method a { padding: 5px 10px; font-size: 14px; }
+  /* فونت تماس با ما */
+  .contact-method.f a { font-size: 1.1rem; }
 } 
-.f{
-  font-size: 1.5rem;
-}
+.f{ font-size: 1.5rem; }
 </style>
 </head>
 <body>
@@ -186,7 +186,7 @@ body {
         <div class="contact-method f" id="content">  <a href="#" onclick="makeCall('+989168603466')">📞 تماس با مدیریت / همراه اول</a></div> 
          <div class="contact-method f" id="content"> <a href="https://t.me/Saeidyr5" target="_blank">💬  ارسال پیام به تـلگرام</a></div>
          <div class="contact-method f" id="content"> <a href="https://wa.me/989398508530" target="_blank">💬 ارسال پیام به واتساپ</a></div>
-         <div class="contact-method f" id="content"> <a href="https://eitaa.com/saeidyr" target="_blank">💬 ارسال پیام به ایـتـا</a></div>
+         <div class="contact-method f" id="content"> <a href="https://eitaa.com/saeidyr" target="_blank" rel="noopener" onclick="openEitaa(event)">💬 ارسال پیام به ایـتـا</a></div>
         <div class="contact-method f" id="content"> <a href="http://www.rubika.ir/@saeidyr" target="_blank">💬 ارسال پیام به روبیکـا</a></div>
         <div class="contact-method f" id="content">  <a href="https://ble.ir/saeidyrb" target="_blank">💬 ارسال پیام به بـلـه</a></div>
         <div class="contact-method f" id="content">  <a href="https://www.saeidyr.ir" target="_blank">🌐 مشاهده سایت</a></div>
@@ -259,6 +259,13 @@ function shareNumber(num){
 function makeCall(n){
   if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)){window.location.href="tel:"+n;}
   else{navigator.clipboard.writeText(n).then(()=>alert("شماره کپی شد!"));}
+}
+function openEitaa(evt) {
+  evt.preventDefault();
+  toggleAccordion(1);                   // پنل تماس را ببند تا کلاس‌های active حذف شوند
+  setTimeout(() => {
+    window.open('https://eitaa.com/saeidyr', '_blank', 'noopener');
+  }, 60);                               // کمی تأخیر برای اعمال استایل‌ها
 }
  // 🗺️ آرایه‌ای از مکان‌ها — هرکدام با نام و طول/عرض جغرافیایی
   const locations = [
