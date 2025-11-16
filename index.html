@@ -77,11 +77,11 @@ body {
   height: 100%;
   background: 
     linear-gradient(rgba(233, 245, 233, 0.85), rgba(233, 245, 233, 0.85)),
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path fill="%234CAF50" d="M50,150 Q100,100 150,150 L150,200 L50,200 Z"/><circle cx="60" cy="80" r="15" fill="%2381C784"/><circle cx="100" cy="70" r="20" fill="%2366BB6A"/><circle cx="140" cy="85" r="12" fill="%2381C784"/></svg>');
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 200 200"><path fill="%234CAF50" d="M50,150 Q100,100 150,150 L150,200 L50,200 Z"/><circle cx="60" cy="80" r="15" fill="%2381C784"/><circle cx="100" cy="70" r="20" fill="%2366BB6A"/><circle cx="140" cy="85" r="12" fill="%2381C784"/></svg>');
   background-size: cover;
   z-index: 1;
   border-radius: 24px;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 /* درخت زیبا */
@@ -89,9 +89,9 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 150px;
+  top: 250px;
   bottom: 20px;
-  width: 80px;
+  width: 200px;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -571,7 +571,7 @@ body {
   </div>
   <div class="accordion-item">
     <button id="address-btn" class="accordion-button" onclick="toggleAccordion(3)">
-      <span>آدرس‌ها</span>
+      <span>آدرس‌ ما</span>
       <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58Z"/></svg>
     </button>
     <div class="accordion-content" id="address-content">
@@ -635,11 +635,11 @@ const locations = [
     lat: 31.65306347427871,
     lng: 48.597076111153655
   },
-  {
-    label: 'آدرس سوم در صورت نیاز',
-    lat: 31.279271,
-    lng: 49.603414
-  }
+  // {
+  //   label: 'آدرس سوم در صورت نیاز',
+  //   lat: 31.279271,
+  //   lng: 49
+  // }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
