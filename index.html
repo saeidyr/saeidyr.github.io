@@ -80,7 +80,8 @@ body {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-xl);
-  margin:0;    }
+  margin:0; position:relative;
+  z-index:4; /* تا همیشه روی برگ‌ها بمانند */   }
 .logo-section .subtitle{
   font-size: var(--font-size-sm);
   font-family: var(--font-family-primary);
@@ -153,22 +154,34 @@ body {
   75% { transform: rotate(calc(var(--start-rot) - 8deg)) translateX(1px); }
   100% { transform: rotate(var(--start-rot)) translateX(0); }   }
 .logo-leaf {
-  animation: leafSwing 5s ease-in-out infinite;
-  transform-origin: center center;    }
+  animation: leafSwing 2s ease-in-out infinite;
+  transform-origin: center center; z-index: 1;   }
+
 /* تنظیم چرخش اولیه هر برگ */
-.logo-leaf:nth-child(1){ --start-rot:-35deg; animation-delay:0.1s; }
-.logo-leaf:nth-child(2){ --start-rot:55deg; animation-delay:0.1s; }
-.logo-leaf:nth-child(3){ --start-rot:25deg; animation-delay:0.1s; }
+.logo-leaf:nth-child(1) { --start-rot:-35deg; animation-delay:0s; animation-duration:1.8s; }
+.logo-leaf:nth-child(2) { --start-rot:55deg;  animation-delay:.15s; animation-duration:2.2s; }
+.logo-leaf:nth-child(3) { --start-rot:25deg;  animation-delay:.3s;  animation-duration:1.6s; }
+
 @media(max-width:480px){
   .logo-section{flex-direction:column;text-align:center;}
   .logo{width:85px;height:85px;}    }
+  /* برگ‌ها عقب بروند */
+.logo-leaf { z-index: 1; }
+
+/* عکس و متن جلو بمانند */
+.logo-section img,
+.logo-text {
+  position: relative;
+  z-index: 2;}
 </style>
 </head>
 <body>
 <div class="business-card">
   <div class="nature-background"></div>
   <div class="logo-section">
-    <span class="logo-leaf">🌿🌿</span><span class="logo-leaf">🌿</span><span class="logo-leaf">🌿🌿</span>
+    <span class="logo-leaf">🌿🌿🌿🌿</span><span class="logo-leaf">🌿🌿🌿</span><span class="logo-leaf">🌿🌿🌿🌿</span>
+     <span class="logo-leaf">🌿🌿🌿🌿</span><span class="logo-leaf">🌿🌿🌿</span><span class="logo-leaf">🌿🌿🌿🌿</span>
+     
     <!-- برای تغییر لوگو، آدرس تصویر را در src قرار دهید -->
     <img src="https://cdn.imgurl.ir/uploads/a046769_1.jpg" class="logo" alt="saeidsoft">
     <div class="logo-text">
