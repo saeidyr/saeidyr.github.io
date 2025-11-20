@@ -72,12 +72,20 @@ body {
 /*
 .logo{
   width:140px;height:100px;border-radius:15px;object-fit:cover;
-  border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.2);  }
+  border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.2);
+}
 */
 .logo-text{text-align:center;flex:1;}
-.logo-section h2{ font-family: var(--font-family-primary);  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-xl);  margin:0; position:relative;   z-index:4; /* تا همیشه روی برگ‌ها بمانند */   }
-.logo-section .subtitle{  font-size: var(--font-size-sm);   font-family: var(--font-family-primary);   margin-top:6px;   }
+.logo-section h2{
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  margin:0; position:relative;
+  z-index:4; /* تا همیشه روی برگ‌ها بمانند */   }
+.logo-section .subtitle{
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-primary);
+  margin-top:6px;   }
 /* برگ‌های اطراف لوگو */
 .logo-leaf{
   position:absolute;width:26px;height:45px;
@@ -105,7 +113,8 @@ body {
   font-size: var(--font-size-base);  }
 .accordion-content.active{
   max-height:1800px;opacity:1;padding:20px 15px;
-  box-shadow:inset 0 3px 12px rgba(0,0,0,0.08);  }
+  box-shadow:inset 0 3px 12px rgba(0,0,0,0.08);
+}
 /* رنگ‌های دکمه‌ها */
 #intro-btn{background:var(--intro-bg);}
 #skills-btn{background:var(--skills-bg);}
@@ -121,15 +130,20 @@ body {
   margin:6px 0;   background:rgba(255,255,255,0.6);   padding:8px 12px;
   border-radius:12px;   font-family: var(--font-family-primary);
   font-size: var(--font-size-base);   }
-.contact-method a{    display:inline-block;background:rgba(255,255,255,0.4);
-  color:#004d40;padding:8px 15px;border-radius:12px;   text-decoration:none;margin:5px;transition:.3s;
-  font-family: var(--font-family-primary);   font-size: var(--font-size-sm);   }
+.contact-method a{
+  display:inline-block;background:rgba(255,255,255,0.4);
+  color:#004d40;padding:8px 15px;border-radius:12px;
+  text-decoration:none;margin:5px;transition:.3s;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);   }
 .contact-method a:hover{background:rgba(255,255,255,0.65);}
 /* دکمه‌های آدرس */
 .map-link{
-  display:block;background:linear-gradient(135deg,#43a047,#2e7d32);   color:#fff;border:none;border-radius:18px;
+  display:block;background:linear-gradient(135deg,#43a047,#2e7d32);
+  color:#fff;border:none;border-radius:18px;
   padding:14px;margin:8px auto;font-family: var(--font-family-primary);
-  font-size: var(--font-size-base);   width:85%;max-width:340px;cursor:pointer;
+  font-size: var(--font-size-base);
+  width:85%;max-width:340px;cursor:pointer;
   box-shadow:0 8px 20px rgba(0,0,0,0.15);transition:all .3s;   }
 .map-link:hover{background:linear-gradient(135deg,#388e3c,#1b5e20);transform:translateY(-4px);}
 /* 🍃 انیمیشن طبیعی برگ‌ها */
@@ -141,26 +155,32 @@ body {
   100% { transform: rotate(var(--start-rot)) translateX(0); }   }
 .logo-leaf {
   animation: leafSwing 2s ease-in-out infinite;
-  transform-origin: center center; z-index: 1;   }  
+  transform-origin: center center; z-index: 1;   }
+
 /* تنظیم چرخش اولیه هر برگ */
 .logo-leaf:nth-child(1) { --start-rot:-35deg; animation-delay:0s; animation-duration:1.8s; }
 .logo-leaf:nth-child(2) { --start-rot:55deg;  animation-delay:.15s; animation-duration:2.2s; }
-.logo-leaf:nth-child(3) { --start-rot:25deg;  animation-delay:.3s;  animation-duration:1.6s; }  
+.logo-leaf:nth-child(3) { --start-rot:25deg;  animation-delay:.3s;  animation-duration:1.6s; }
+
 @media(max-width:480px){
   .logo-section{flex-direction:column;text-align:center;}
   .logo{width:85px;height:85px;}    }
   /* برگ‌ها عقب بروند */
-.logo-leaf { z-index: 1; }  
+.logo-leaf { z-index: 1; }
+
 /* عکس و متن جلو بمانند */
 .logo-section img,
-.logo-text {   position: relative;   z-index: 2;}
+.logo-text {
+  position: relative;
+  z-index: 2;}
 </style>
 </head>
 <body>
 <div class="business-card">
   <div class="nature-background"></div>
   <div class="logo-section">
-    <span class="logo-leaf">🌿</span><span class="logo-leaf">🌿</span><span class="logo-leaf">🌿</span>      
+    <span class="logo-leaf">🌿</span><span class="logo-leaf">🌿</span><span class="logo-leaf">🌿</span>
+     
     <!-- برای تغییر لوگو، آدرس تصویر را در src قرار دهید -->
     <img src="https://cdn.imgurl.ir/uploads/a046769_1.jpg" class="logo" alt="saeidsoft">
     <div class="logo-text">
@@ -236,10 +256,11 @@ body {
   </div>
   <div class="accordion-item">
     <button id="address-btn" class="accordion-button" onclick="toggleAccordion(3)">
-      آدرس‌ ما
+      🗺️ آدرس‌ و مسیریابی 📍
      <span class="logo-leaf"> 🌿 </span>
     </button>
     <div class="accordion-content" id="address-content">
+      <div class="contact-method"><a> 👇 برای مسیریابی کلیک کنید  </a>
       <div id="locations-list"></div>
     </div>
   </div>
@@ -256,11 +277,11 @@ function toggleAccordion(i){
 function makeCall(n){if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)){location.href="tel:"+n;}else{navigator.clipboard.writeText(n).then(()=>alert("شماره کپی شد!"));}}
 function shareNumber(n){if(navigator.share){navigator.share({text:n});}else{window.open('https://wa.me/?text='+n,'_blank');}}
 const locations=[
- {label:' دفتر اصلی: اهواز، الهائی، خیابان شهید محسن الهائی ',
- lat:31.65953252,
- lng:48.5906345 
+ { label: ' 📌دفتر اصلی : شهر الهائی خ شهید محسن ',
+  lat: 31.65953252,
+  lng: 48.5906345 
 },
- {label:' محل کار: امام حسن عسکری، دبیرستان شهید الهائی ',
+ {label:' 📌محل کار: امام حسن عسکری، دبیرستان شهید الهائی ',
  lat:31.65306347,
  lng:48.59707611
 }
